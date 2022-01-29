@@ -20,9 +20,42 @@ namespace Salon
     /// </summary>
     public partial class MainWindow : Window
     {
+        SalonEntities context;
         public MainWindow()
         {
             InitializeComponent();
+            context = new SalonEntities();
+            ShowTable();
+        }
+
+        private void ShowTable()
+        {
+            DataGridClientService.ItemsSource = context.ClientServices.ToList();
+        }
+
+        private void BtnAddData_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnDeleteData_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnEditData_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSelectClients_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSelectServices_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
