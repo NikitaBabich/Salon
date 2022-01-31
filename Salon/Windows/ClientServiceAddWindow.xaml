@@ -1,0 +1,26 @@
+﻿<Window x:Class="Salon.Windows.ClientServiceAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Salon.Windows"
+        mc:Ignorable="d"
+        Title="Добавление записи" WindowStartupLocation="CenterScreen" Height="450" Width="800" Icon="/beauty_logo.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <UniformGrid Columns="2">
+            <TextBlock>Клиент</TextBlock>
+            <ComboBox x:Name="CmbClients" DisplayMemberPath="FirstName" SelectedItem="{Binding Client}"></ComboBox>
+            <TextBlock>Услуга</TextBlock>
+            <ComboBox x:Name="CmbServices" DisplayMemberPath="Title" SelectedItem="{Binding Service}"></ComboBox>
+            <TextBlock>Дата оказание услуги</TextBlock>
+            <DatePicker SelectedDate="{Binding StartTime}"></DatePicker>
+            <TextBlock>Комментарий</TextBlock>
+            <TextBox x:Name="TxtComment" Text="{Binding Comment}"></TextBox>
+        </UniformGrid>
+        <Button x:Name="BtnSaveData" Grid.Row="1" Click="BtnSaveData_Click">Добавить</Button>
+    </Grid>
+</Window>

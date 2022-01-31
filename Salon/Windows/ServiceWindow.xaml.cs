@@ -10,41 +10,39 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Salon
+namespace Salon.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ServiceWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ServiceWindow : Window
     {
         SalonEntities context;
-        public MainWindow()
+        public ServiceWindow()
         {
             InitializeComponent();
             context = new SalonEntities();
             ShowTable();
         }
-
         private void ShowTable()
         {
-            DataGridClientService.ItemsSource = context.ClientServices.ToList();
+            DataGridServices.ItemsSource = context.Services.ToList();
         }
 
         private void BtnAddData_Click(object sender, RoutedEventArgs e)
         {
-            var NewZap = new ClientService();
-            context.ClientServices.Add(NewZap);
-            var EditWindow = new Windows.ClientServiceAddWindow(context, NewZap);
+            var NewZap = new Service();
+            context.Services.Add(NewZap);
+            var EditWindow = new Windows.ServiceAddWindow(context, NewZap);
             EditWindow.ShowDialog();
             ShowTable();
         }
 
         private void BtnDeleteData_Click(object sender, RoutedEventArgs e)
         {
-            var currentZap = DataGridClientService.SelectedItem as ClientService;
+            var currentZap = DataGridServices.SelectedItem as Service;
             if (currentZap == null)
             {
                 MessageBox.Show("Выберите строку!");
@@ -53,7 +51,7 @@ namespace Salon
             MessageBoxResult messageBoxResult = MessageBox.Show("Вы хотите удалить?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (messageBoxResult == MessageBoxResult.Yes)
             {
-                context.ClientServices.Remove(currentZap);
+                context.Services.Remove(currentZap);
                 context.SaveChanges();
                 MessageBox.Show("Данные удалены");
                 ShowTable();
@@ -63,21 +61,9 @@ namespace Salon
         private void BtnEditData_Click(object sender, RoutedEventArgs e)
         {
             Button BtnEdit = sender as Button;
-            var currentZap = BtnEdit.DataContext as ClientService;
-            var EditWindow = new Windows.ClientServiceAddWindow(context, currentZap);
+            var currentZap = BtnEdit.DataContext as Service;
+            var EditWindow = new Windows.ServiceAddWindow(context, currentZap);
             EditWindow.ShowDialog();
-        }
-
-        private void BtnSelectClients_Click(object sender, RoutedEventArgs e)
-        {
-            var ClientList = new Windows.ClientsWindow();
-            ClientList.ShowDialog();
-        }
-
-        private void BtnSelectServices_Click(object sender, RoutedEventArgs e)
-        {
-            var ServiceList = new Windows.ServiceWindow();
-            ServiceList.ShowDialog();
         }
     }
 }

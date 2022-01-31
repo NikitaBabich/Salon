@@ -1,28 +1,29 @@
-﻿<Window x:Class="Salon.MainWindow"
+﻿<Window x:Class="Salon.Windows.ServiceWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Salon"
+        xmlns:local="clr-namespace:Salon.Windows"
         mc:Ignorable="d"
-        Title="Записи клиентов" WindowStartupLocation="CenterScreen" Height="450" Width="800" Icon="/beauty_logo.ico">
+        Title="Услуги" WindowStartupLocation="CenterScreen" Height="450" Width="800" Icon="/beauty_logo.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4">
             <Button x:Name="BtnAddData" Content="Добавить запись" Click="BtnAddData_Click"/>
             <Button x:Name="BtnDeleteData" Content="Удалить запись" Click="BtnDeleteData_Click"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" x:Name="DataGridClientService" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Grid.ColumnSpan="4" >
+        <DataGrid Grid.Row="1" x:Name="DataGridServices" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Grid.ColumnSpan="4" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID записи" Binding="{Binding ID}"/>
-                <DataGridTextColumn Header="Клиент" Binding="{Binding Client.FirstName}"/>
-                <DataGridTextColumn Header="Услуга" Binding="{Binding Service.Title}"/>
-                <DataGridTextColumn Header="Время начала" Binding="{Binding StartTime}"/>
-                <DataGridTextColumn Header="Комментарий" Binding="{Binding Comment}"/>
+                <DataGridTextColumn Header="ID услуги" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Title}"/>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Cost}"/>
+                <DataGridTextColumn Header="Длительность (сек)" Binding="{Binding DurationInSeconds}"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="Скидка" Binding="{Binding Discount}"/>
+                <DataGridTextColumn Header="Фото" Binding="{Binding MainImagePath}"/>
                 <DataGridTemplateColumn Header="Редактировать">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -32,9 +33,5 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Row="2" Orientation="Horizontal">
-            <Button x:Name="BtnSelectClients" Content="Открыть список клиентов" Click="BtnSelectClients_Click"/>
-            <Button x:Name="BtnSelectServices" Content="Открыть список услуг" Click="BtnSelectServices_Click"/>
-        </StackPanel>
     </Grid>
 </Window>

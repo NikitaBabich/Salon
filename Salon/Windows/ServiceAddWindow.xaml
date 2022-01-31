@@ -1,0 +1,30 @@
+﻿<Window x:Class="Salon.Windows.ServiceAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Salon.Windows"
+        mc:Ignorable="d"
+        Title="Добавление услуги" WindowStartupLocation="CenterScreen" Height="450" Width="800" Icon="/beauty_logo.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <UniformGrid Columns="2">
+            <TextBlock>Название услуги</TextBlock>
+            <TextBox x:Name="TxtTitle" Text="{Binding Title}"></TextBox>
+            <TextBlock>Цена</TextBlock>
+            <TextBox x:Name="TxtCost" Text="{Binding Cost}"></TextBox>
+            <TextBlock>Длительность (сек.)</TextBlock>
+            <TextBox x:Name="TxtDuration" Text="{Binding DurationInSeconds}"></TextBox>
+            <TextBlock>Описание</TextBlock>
+            <TextBox x:Name="TxtDescr" Text="{Binding Description}"></TextBox>
+            <TextBlock>Скидка</TextBlock>
+            <TextBox x:Name="TxtDiscount" Text="{Binding Discount}"></TextBox>
+            <TextBlock>Путь к фото</TextBlock>
+            <TextBox x:Name="TxtPhoto" Text="{Binding MainImagePath}"></TextBox>
+        </UniformGrid>
+        <Button x:Name="BtnSaveData" Grid.Row="1" Click="BtnSaveData_Click">Добавить</Button>
+    </Grid>
+</Window>
