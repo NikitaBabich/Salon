@@ -15,7 +15,7 @@
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4">
             <Button x:Name="BtnAddData" Content="Добавить запись" Click="BtnAddData_Click"/>
             <Button x:Name="BtnDeleteData" Content="Удалить запись" Click="BtnDeleteData_Click"/>
-            <Button x:Name="Btn" Content="Удалить запись"/>
+            <Label Content="Тестовая отправка на гит"></Label>
         </StackPanel>
         <DataGrid Grid.Row="1" x:Name="DataGridClientService" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Grid.ColumnSpan="4" >
             <DataGrid.Columns>
