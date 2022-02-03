@@ -35,10 +35,10 @@
                 <DataGridTextColumn Header="Почта" Binding="{Binding Email}"/>
                 <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
                 <DataGridTextColumn Header="Пол" Binding="{Binding Gender.Name}"/>
-                <DataGridTemplateColumn Header="Фото клиента">
+                <DataGridTemplateColumn Header="Фото клиента" MaxWidth="200">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding PhotoPath}"></Image>
+                            <Image Source="{Binding PhotoPath}" Width="100" Height="60"></Image>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
