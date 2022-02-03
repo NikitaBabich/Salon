@@ -13,6 +13,7 @@
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
+            <Image Source ="beauty_logo.png" HorizontalAlignment="Left"/>
             <Button x:Name="BtnAddData" Content="Добавить запись" Click="BtnAddData_Click"/>
             <Button x:Name="BtnDeleteData" Content="Удалить запись" Click="BtnDeleteData_Click"/>
         </StackPanel>

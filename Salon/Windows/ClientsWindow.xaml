@@ -24,7 +24,7 @@
             <Label Content="Поиск"/>
             <TextBox x:Name="TxtSearch" TextChanged="TxtSearch_TextChanged" Width="150"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" x:Name="DataGridClients" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Grid.ColumnSpan="4" >
+        <DataGrid Grid.Row="1" x:Name="DataGridClients" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" ItemsSource="{Binding Клиенты}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID клиента" Binding="{Binding ID}"/>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding FirstName}"/>
@@ -35,10 +35,10 @@
                 <DataGridTextColumn Header="Почта" Binding="{Binding Email}"/>
                 <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
                 <DataGridTextColumn Header="Пол" Binding="{Binding Gender.Name}"/>
-                <DataGridTemplateColumn Header="Фотография">
+                <DataGridTemplateColumn Header="Фото клиента">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Path=Resources\Clients}" Height="70"/>
+                            <Image Source="{Binding PhotoPath}"></Image>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
