@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -33,17 +34,42 @@ namespace Salon.Windows
 
         private void BtnAddData_Click(object sender, RoutedEventArgs e)
         {
-
+            var NewZap = new Client();
+            context.Clients.Add(NewZap);
+            var EditWindow = new Windows.ClientAddWindow(context, NewZap);
+            EditWindow.ShowDialog();
+            ShowTable();
         }
 
         private void BtnDeleteData_Click(object sender, RoutedEventArgs e)
         {
-
+            var currentZap = DataGridClients.SelectedItem as Client;
+            if (currentZap == null)
+            {
+                System.Windows.MessageBox.Show("Выберите строку!");
+                return;
+            }
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Вы хотите удалить?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                context.Clients.Remove(currentZap);
+                context.SaveChanges();
+                System.Windows.MessageBox.Show("Данные удалены");
+                ShowTable();
+            }
         }
 
         private void BtnEditData_Click(object sender, RoutedEventArgs e)
         {
+            System.Windows.Controls.Button BtnEdit = sender as System.Windows.Controls.Button;
+            var currentZap = BtnEdit.DataContext as Client;
+            var EditWindow = new Windows.ClientAddWindow(context, currentZap);
+            EditWindow.ShowDialog();
+        }
 
+        private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataGridClients.ItemsSource = context.Clients.Where(x => x.FirstName.Contains(TxtSearch.Text)) .ToList();
         }
     }
 }

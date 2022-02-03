@@ -46,6 +46,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -105,21 +106,21 @@
     <Compile Include="Tag.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-	  <Compile Include="Windows\ClientAddWindow.xaml.cs">
-		  <DependentUpon>ClientAddWindow.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Include="Windows\ClientServiceAddWindow.xaml.cs">
-		  <DependentUpon>ClientServiceAddWindow.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Include="Windows\ClientsWindow.xaml.cs">
-		  <DependentUpon>ClientsWindow.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Include="Windows\ServiceAddWindow.xaml.cs">
-		  <DependentUpon>ServiceAddWindow.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Include="Windows\ServiceWindow.xaml.cs">
-		  <DependentUpon>ServiceWindow.xaml</DependentUpon>
-	  </Compile>
+    <Compile Include="Windows\ClientAddWindow.xaml.cs">
+      <DependentUpon>ClientAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ClientServiceAddWindow.xaml.cs">
+      <DependentUpon>ClientServiceAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ClientsWindow.xaml.cs">
+      <DependentUpon>ClientsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ServiceAddWindow.xaml.cs">
+      <DependentUpon>ServiceAddWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ServiceWindow.xaml.cs">
+      <DependentUpon>ServiceWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -197,25 +198,25 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-	<ItemGroup>
-		<Resource Include="beauty_logo.png" />
-		<Resource Include="beauty_logo.ico" />
-		<Content Include="Model1.Context.tt">
-			<Generator>TextTemplatingFileGenerator</Generator>
-			<LastGenOutput>Model1.Context.cs</LastGenOutput>
-			<DependentUpon>Model1.edmx</DependentUpon>
-		</Content>
-		<Content Include="Model1.tt">
-			<Generator>TextTemplatingFileGenerator</Generator>
-			<DependentUpon>Model1.edmx</DependentUpon>
-			<LastGenOutput>Model1.cs</LastGenOutput>
-		</Content>
-	</ItemGroup>
-	<ItemGroup>
-		<Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="Resources\" />
-	</ItemGroup>
+  <ItemGroup>
+    <Resource Include="beauty_logo.png" />
+    <Resource Include="beauty_logo.ico" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Clients\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

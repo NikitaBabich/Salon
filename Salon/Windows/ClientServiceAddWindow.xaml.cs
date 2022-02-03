@@ -35,5 +35,10 @@ namespace Salon.Windows
             MessageBox.Show("Данные добавлены");
             this.Close();
         }
+
+        private void BtnSaveData_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

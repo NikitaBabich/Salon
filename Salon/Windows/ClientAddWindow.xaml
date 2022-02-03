@@ -7,6 +7,30 @@
         mc:Ignorable="d"
         Title="Добавление клиента" WindowStartupLocation="CenterScreen" Height="450" Width="800" Icon="/beauty_logo.ico">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <UniformGrid Columns="2">
+            <TextBlock>Фамилия</TextBlock>
+            <TextBox x:Name="TxtSurname" Text="{Binding FirstName}"></TextBox>
+            <TextBlock>Имя</TextBlock>
+            <TextBox x:Name="TxtName" Text="{Binding LastName}"></TextBox>
+            <TextBlock>Отчество</TextBlock>
+            <TextBox x:Name="TxtMiddlename" Text="{Binding Patronymic}"></TextBox>
+            <TextBlock>Дата рождения</TextBlock>
+            <DatePicker SelectedDate="{Binding Birthday}"></DatePicker>
+            <TextBlock>Дата регистрации</TextBlock>
+            <DatePicker SelectedDate="{Binding RegistrationDate}"></DatePicker>
+            <TextBlock>Email</TextBlock>
+            <TextBox x:Name="TxtEmail" Text="{Binding Email}"></TextBox>
+            <TextBlock>Телефон</TextBlock>
+            <TextBox x:Name="TxtPhone" Text="{Binding Phone}"></TextBox>
+            <TextBlock>Пол</TextBlock>
+            <ComboBox x:Name="CmbGender" DisplayMemberPath="Name" SelectedItem="{Binding Gender}"></ComboBox>
+            <TextBlock>Фото</TextBlock>
+            <TextBox x:Name="TxtPhoto" Text="{Binding PhotoPath}"></TextBox>
+        </UniformGrid>
+        <Button x:Name="BtnSaveData" Grid.Row="1" Click="BtnSaveData_Click">Добавить</Button>
     </Grid>
 </Window>

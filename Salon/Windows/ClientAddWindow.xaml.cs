@@ -19,9 +19,20 @@ namespace Salon.Windows
     /// </summary>
     public partial class ClientAddWindow : Window
     {
-        public ClientAddWindow()
+        SalonEntities context;
+        public ClientAddWindow(SalonEntities context, Client client)
         {
             InitializeComponent();
+            this.context = context;
+            CmbGender.ItemsSource = context.Genders.ToList();
+            this.DataContext = client;
+        }
+
+        private void BtnSaveData_Click(object sender, RoutedEventArgs e)
+        {
+            context.SaveChanges();
+            MessageBox.Show("Данные добавлены");
+            this.Close();
         }
     }
 }
