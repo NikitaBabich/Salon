@@ -70,7 +70,7 @@ namespace Salon.Windows
 
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            DataGridClients.ItemsSource = context.Clients.Where(x => x.FirstName.Contains(TxtSearch.Text)) .ToList();
+            DataGridClients.ItemsSource = context.Clients.Where(x => x.FirstName.Contains(TxtSearch.Text)).ToList();
         }
 
         private void CmbFiltr_SelectionChanged(object sender, SelectionChangedEventArgs e)
