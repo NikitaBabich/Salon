@@ -16,7 +16,11 @@
             <Button x:Name="BtnAddData" Content="Добавить запись" Click="BtnAddData_Click"/>
             <Button x:Name="BtnDeleteData" Content="Удалить запись" Click="BtnDeleteData_Click"/>
             <Label Content="Филтрация по полу: "/>
-            <ComboBox x:Name="CmbFiltr" Width="150"/>
+            <ComboBox x:Name="CmbFiltr" Width="150" SelectionChanged="CmbFiltr_SelectionChanged">
+                <Label Content="Все"></Label>
+                <Label Content="Мужчины"></Label>
+                <Label Content="Женщины"></Label>
+            </ComboBox>
             <Label Content="Поиск"/>
             <TextBox x:Name="TxtSearch" TextChanged="TxtSearch_TextChanged" Width="150"/>
         </StackPanel>

@@ -25,6 +25,7 @@ namespace Salon.Windows
         {
             InitializeComponent();
             context = new SalonEntities();
+            CmbFiltr.SelectedIndex = 0;
             ShowTable();
         }
         private void ShowTable()
@@ -70,6 +71,22 @@ namespace Salon.Windows
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             DataGridClients.ItemsSource = context.Clients.Where(x => x.FirstName.Contains(TxtSearch.Text)) .ToList();
+        }
+
+        private void CmbFiltr_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (CmbFiltr.SelectedIndex==0)
+            {
+                ShowTable();
+            }
+            if (CmbFiltr.SelectedIndex == 1)
+            {
+                DataGridClients.ItemsSource = context.Clients.Where(x => x.GenderCode.Contains("1")).ToList();
+            }
+            if (CmbFiltr.SelectedIndex == 2)
+            {
+                DataGridClients.ItemsSource = context.Clients.Where(x => x.GenderCode.Contains("2")).ToList();
+            }
         }
     }
 }
