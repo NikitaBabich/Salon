@@ -9,12 +9,15 @@
         Title="Спиок клиентов" WindowStartupLocation="CenterScreen" Height="450" Width="800" Icon="/beauty_logo.ico">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4">
+        <StackPanel Orientation="Horizontal">
             <Button x:Name="BtnAddData" Content="Добавить запись" Click="BtnAddData_Click"/>
             <Button x:Name="BtnDeleteData" Content="Удалить запись" Click="BtnDeleteData_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
             <Label Content="Филтрация по полу: "/>
             <ComboBox x:Name="CmbFiltr" Width="150" SelectionChanged="CmbFiltr_SelectionChanged">
                 <Label Content="Все"></Label>
@@ -24,7 +27,7 @@
             <Label Content="Поиск"/>
             <TextBox x:Name="TxtSearch" TextChanged="TxtSearch_TextChanged" Width="150"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" x:Name="DataGridClients" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" ItemsSource="{Binding Клиенты}">
+        <DataGrid Grid.Row="2" x:Name="DataGridClients" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" ItemsSource="{Binding Resources}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID клиента" Binding="{Binding ID}"/>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding FirstName}"/>

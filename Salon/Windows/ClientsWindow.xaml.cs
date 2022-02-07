@@ -30,7 +30,18 @@ namespace Salon.Windows
         }
         private void ShowTable()
         {
-            DataGridClients.ItemsSource = context.Clients.ToList();
+            if (CmbFiltr.SelectedIndex == 0)
+            {
+                DataGridClients.ItemsSource = context.Clients.ToList();
+            }
+            if (CmbFiltr.SelectedIndex == 1)
+            {
+                DataGridClients.ItemsSource = context.Clients.Where(x => x.GenderCode.Contains("1")).ToList();
+            }
+            if (CmbFiltr.SelectedIndex == 2)
+            {
+                DataGridClients.ItemsSource = context.Clients.Where(x => x.GenderCode.Contains("2")).ToList();
+            }
         }
 
         private void BtnAddData_Click(object sender, RoutedEventArgs e)
@@ -75,18 +86,7 @@ namespace Salon.Windows
 
         private void CmbFiltr_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (CmbFiltr.SelectedIndex==0)
-            {
-                ShowTable();
-            }
-            if (CmbFiltr.SelectedIndex == 1)
-            {
-                DataGridClients.ItemsSource = context.Clients.Where(x => x.GenderCode.Contains("1")).ToList();
-            }
-            if (CmbFiltr.SelectedIndex == 2)
-            {
-                DataGridClients.ItemsSource = context.Clients.Where(x => x.GenderCode.Contains("2")).ToList();
-            }
+            ShowTable();
         }
     }
 }
